@@ -101,20 +101,20 @@ export interface MetaDatum {
 }
 
 interface LineItem {
-  id: number;
-  name: string;
+  id?: number;
+  name?: string;
   product_id: number;
-  variation_id: number;
+  variation_id?: number;
   quantity: number;
-  tax_class: string;
-  subtotal: string;
-  subtotal_tax: string;
-  total: string;
-  total_tax: string;
-  taxes: any[];
-  meta_data: MetaData[];
-  sku: string;
-  price: number;
+  tax_class?: string;
+  subtotal?: string;
+  subtotal_tax?: string;
+  total?: string;
+  total_tax?: string;
+  taxes?: any[];
+  meta_data?: MetaData[];
+  sku?: string;
+  price?: number;
 }
 interface ShippingLine {
   id: number;
@@ -203,48 +203,57 @@ export interface Customer {
 }
 
 export interface Order {
-  id: number;
-  parent_id: number;
-  number: string;
-  order_key: string;
-  created_via: string;
-  version: string;
-  status: string;
-  currency: string;
-  date_created: Date;
-  date_created_gmt: Date;
-  date_modified: Date;
-  date_modified_gmt: Date;
-  discount_total: string;
-  discount_tax: string;
-  shipping_total: string;
-  shipping_tax: string;
-  cart_tax: string;
-  total: string;
-  total_tax: string;
-  prices_include_tax: boolean;
-  customer_id: number;
-  customer_ip_address: string;
-  customer_user_agent: string;
-  customer_note: string;
-  billing: Billing;
-  shipping: Shipping;
+  id?: number;
+  parent_id?: number;
+  number?: string;
+  order_key?: string;
+  created_via?: string;
+  version?: string;
+  status?:
+    | "pending"
+    | "processing"
+    | "on-hold"
+    | "completed"
+    | "cancelled"
+    | "refunded"
+    | "failed"
+    | "trash";
+  currency?: string;
+  date_created?: Date;
+  date_created_gmt?: Date;
+  date_modified?: Date;
+  date_modified_gmt?: Date;
+  discount_total?: string;
+  discount_tax?: string;
+  shipping_total?: string;
+  shipping_tax?: string;
+  cart_tax?: string;
+  total?: string;
+  total_tax?: string;
+  prices_include_tax?: boolean;
+  customer_id?: number;
+  customer_ip_address?: string;
+  customer_user_agent?: string;
+  customer_note?: string;
+  billing?: Billing;
+  shipping?: Shipping;
   payment_method: string;
   payment_method_title: string;
-  transaction_id: string;
-  date_paid?: any;
-  date_paid_gmt?: any;
-  date_completed?: any;
-  date_completed_gmt?: any;
-  cart_hash: string;
-  meta_data: any[];
+  transaction_id?: string;
+  date_paid?: Date;
+  date_paid_gmt?: Date;
+  date_completed?: Date;
+  date_completed_gmt?: Date;
+  cart_hash?: string;
+  meta_data?: any[];
   line_items: LineItem[];
-  tax_lines: any[];
-  shipping_lines: ShippingLine[];
-  fee_lines: any[];
-  coupon_lines: any[];
-  refunds: any[];
-  _links: Links;
+  tax_lines?: any[]; // TODO define tax lines properties
+  shipping_lines?: ShippingLine[];
+  fee_lines?: any[]; // TODO define fee lines properties
+  coupon_lines?: any[]; // TODO define coupon lines properties
+  refunds?: any[]; // TODO define refunds properties
+  set_paid: boolean;
+  _links?: Links;
 }
 
 export interface Links {
