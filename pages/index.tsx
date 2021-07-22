@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { fetchWooCommerceProducts } from "../utils/wooCommerceApi";
-import { Product } from "../utils/wooCommerceTypes";
+import { Product } from "../utils/types/wooCommerceTypes";
 import styled from "styled-components";
 import ProductGrid from "../components/ProductGrid";
 
@@ -14,7 +14,7 @@ export default function Home(props: Props) {
   // destructure props //
   const { products } = props;
 
-  console.log("--WooCommerce Products: ", products);
+  // console.log("--WooCommerce Products: ", products);
 
   return (
     <div>

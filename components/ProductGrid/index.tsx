@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Product } from "../../utils/wooCommerceTypes";
+import { Product } from "../../utils/types/wooCommerceTypes";
 import ProductCard from "../ProductCard";
 
 interface Props {

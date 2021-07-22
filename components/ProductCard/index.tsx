@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { Product } from "../../utils/wooCommerceTypes";
+import { Product } from "../../utils/types/wooCommerceTypes";
+import { createOrderApi } from "../../utils/customApi";
 
 interface Props {
   product: Product;
@@ -9,8 +10,26 @@ interface Props {
 const ProductCard = (props: Props) => {
   const { product } = props;
 
+  const handleClick = async () => {
+    // hard coded data for dev purposes
+    // TODO this handleClick function will add product to cart rather than create an order
+    const data = {
+      payment_method: "cash",
+      payment_method_title: "cash",
+      set_paid: false,
+      line_items: [
+        {
+          product_id: product.id,
+          quantity: 2,
+        },
+      ],
+    };
+
+    await createOrderApi(data).catch((error) => console.error(error.message));
+  };
+
   return (
-    <Card>
+    <Card onClick={handleClick}>
       <ImageContainer>
         <Image
           src={product.images[0].src}
