@@ -4,7 +4,7 @@ import { Order } from "./types/wooCommerceTypes";
 // initialise the WooCommerceRestApi //
 // NOTE: must execute these API calls server-side because env vars only available there and it is more secure
 const api = new WooCommerceRestApi({
-  url: "http://localhost/woocommercenextjs",
+  url: process.env.WORDPRESS_URL!,
   consumerKey: process.env.WOOCOMMERCE_KEY!,
   consumerSecret: process.env.WOOCOMMERCE_SECRET!,
   version: "wc/v3",
