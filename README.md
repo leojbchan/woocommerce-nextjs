@@ -11,7 +11,12 @@ Next.js is a React framework that makes it easy to code for both the front-end a
 Ensure you have a `.env.local` file with any necessary environment variables.
 
 WOOCOMMERCE_KEY
+
 WOOCOMMERCE_SECRET
+
+WORDPRESS_URL
+
+NEXT_PUBLIC_BASE_URL
 
 ## Getting Started
 
