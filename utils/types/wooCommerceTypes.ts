@@ -100,7 +100,7 @@ export interface MetaDatum {
   value: string;
 }
 
-interface LineItem {
+export interface LineItem {
   id?: number;
   name?: string;
   product_id: number;
@@ -116,7 +116,8 @@ interface LineItem {
   sku?: string;
   price?: number;
 }
-interface ShippingLine {
+
+export interface ShippingLine {
   id: number;
   method_title: string;
   method_id: string;
@@ -127,13 +128,13 @@ interface ShippingLine {
   meta_data: any[];
 }
 
-interface Meta_Data_Line_Item {
+export interface Meta_Data_Line_Item {
   // built from my own object sending in, disregard if necessary!
   key: string;
   value: string;
 }
 
-interface Cart {
+export interface Cart {
   // built from my own object sending in, disregard if necessary!
   payment_method: string;
   payment_method_title: string;

@@ -2,8 +2,8 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { fetchWooCommerceProducts } from "../utils/wooCommerceApi";
 import { Product } from "../utils/types/wooCommerceTypes";
-import styled from "styled-components";
-import ProductGrid from "../components/ProductGrid";
+import { ProductGrid } from "../features";
+import { Heading } from "../components";
 
 // declare types for the functional component props //
 interface Props {
@@ -28,7 +28,7 @@ export default function Home(props: Props) {
       </Head>
 
       <main>
-        <StyledH1>The Candy Shop</StyledH1>
+        <Heading textAlign="center">The Candy Shop</Heading>
         <ProductGrid products={products} />
       </main>
     </div>
@@ -53,8 +53,3 @@ export const getStaticProps: GetStaticProps = async () => {
     // revalidate: 60 // regenerate page with new data fetch after 60 seconds
   };
 };
-
-const StyledH1 = styled.h1`
-  font-family: ${(props) => props.theme.font.heading};
-  text-align: center;
-`;
