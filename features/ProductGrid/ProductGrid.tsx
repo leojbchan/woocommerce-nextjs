@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Product } from "../../utils/types/wooCommerceTypes";
-import ProductCard from "../ProductCard";
+import { ProductCard } from "../../containers";
 
 interface Props {
   products: Product[];
