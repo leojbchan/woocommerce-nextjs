@@ -114,7 +114,7 @@ export interface LineItem {
   taxes?: any[];
   meta_data?: MetaData[];
   sku?: string;
-  price?: number;
+  price?: string;
 }
 
 export interface ShippingLine {
