@@ -26,4 +26,5 @@ export default Heading;
 const StyledH1 = styled.h1<Pick<Props, "textAlign" | "color">>`
   text-align: ${(props) => (props.textAlign ? props.textAlign : "center")};
   color: ${(props) => (props.color ? props.color : props.theme.colors.primary)};
+  margin-bottom: 0;
 `;

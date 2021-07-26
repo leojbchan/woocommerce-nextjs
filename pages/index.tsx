@@ -1,9 +1,8 @@
-import Head from "next/head";
 import { GetStaticProps } from "next";
 import { fetchWooCommerceProducts } from "../utils/wooCommerceApi";
 import { Product } from "../utils/types/wooCommerceTypes";
 import { ProductGrid } from "../features";
-import { Heading } from "../components";
+import { NavLayout } from "../layout";
 
 // declare types for the functional component props //
 interface Props {
@@ -17,21 +16,9 @@ export default function Home(props: Props) {
   // console.log("--WooCommerce Products: ", products);
 
   return (
-    <div>
-      <Head>
-        <title>Headless WooCommerce with Next.js</title>
-        <meta
-          name="description"
-          content="Headless WordPress demo with Next.js"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Heading textAlign="center">The Candy Shop</Heading>
-        <ProductGrid products={products} />
-      </main>
-    </div>
+    <NavLayout title="Menu" description="Menu page">
+      <ProductGrid products={products} />
+    </NavLayout>
   );
 }
 

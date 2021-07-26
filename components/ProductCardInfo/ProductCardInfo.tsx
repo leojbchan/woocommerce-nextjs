@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { Button } from "../index";
 
@@ -9,6 +9,14 @@ interface Props {
 }
 
 const ProductCardInfo = (props: Props) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setIsClicked(true);
+    props.onClickFunction(e);
+    setTimeout(() => setIsClicked(false), 300);
+  };
+
   return (
     <Wrapper>
       <SpanContainer>
@@ -17,7 +25,9 @@ const ProductCardInfo = (props: Props) => {
         <span>£{props.price}</span>
       </SpanContainer>
       <Fragment>
-        <Button onClick={props.onClickFunction}>ADD TO CART</Button>
+        <Button onClickFunction={handleClick} isClicked={isClicked}>
+          ADD TO CART
+        </Button>
       </Fragment>
     </Wrapper>
   );

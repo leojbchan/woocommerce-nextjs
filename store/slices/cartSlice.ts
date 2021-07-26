@@ -40,9 +40,6 @@ const decrementQuantityReducer = (
   if (index >= 0 && state.lineItems[index].quantity > 1) {
     // update the lineItems[index] quantity
     state.lineItems[index].quantity -= action.payload.quantity;
-  } else if (index >= 0 && state.lineItems[index].quantity === 1) {
-    // remove line item from array
-    state.lineItems.splice(index, 1);
   }
 };
 

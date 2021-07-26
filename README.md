@@ -29,3 +29,17 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Atomic Design
+
+The principle folder structure is based on Atomic Design with the five stages represented by:
+
+Components: Atoms
+
+Containers: Molecules
+
+Features: Organisms
+
+Layout: Templates
+
+Pages

@@ -15,8 +15,10 @@ const ProductCard = (props: Props) => {
   const dispatch = useAppDispatch();
 
   const lineItem = {
+    name: product.name,
     product_id: product.id,
     quantity: 1,
+    price: product.regular_price,
   };
 
   const handleIncrement = () => {
