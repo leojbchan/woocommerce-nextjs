@@ -29,3 +29,12 @@ export async function createWooCommerceOrder(data: Order) {
     throw new Error(error);
   }
 }
+
+export async function retrieveProductById(productId: string) {
+  try {
+    const response = await api.get(`products/${productId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
