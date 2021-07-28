@@ -7,3 +7,4 @@ export { default as NavHeading } from "./NavHeading/NavHeading";
 export { default as CartHeader } from "./CartHeader/CartHeader";
 export { default as CartQty } from "./CartQty/CartQty";
 export { default as CTA } from "./CTA/CTA";
+export { default as Modal } from "./Modal/Modal";

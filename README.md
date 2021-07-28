@@ -18,6 +18,10 @@ WORDPRESS_URL
 
 NEXT_PUBLIC_BASE_URL
 
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+STRIPE_SECRET_KEY
+
 ## Getting Started
 
 Run the development server:

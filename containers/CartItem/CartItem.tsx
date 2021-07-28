@@ -80,16 +80,5 @@ const Wrapper = styled.div`
       width: 25%;
       text-align: right;
     }
-
-    /* :last-child {
-      width: 25%;
-      text-align: right;
-    } */
   }
-`;
-
-const QtyContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;

@@ -5,22 +5,31 @@ interface Props {
   className?: string;
   children?: React.ReactNode;
   onClickFunction: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 const CTA = (props: Props) => {
   return (
-    <Wrapper className={props.className} onClick={props.onClickFunction}>
+    <StyledButton
+      className={props.className}
+      onClick={props.onClickFunction}
+      disabled={props.disabled}
+    >
       {props.children}
-    </Wrapper>
+    </StyledButton>
   );
 };
 
 export default CTA;
 
-const Wrapper = styled.button`
+const StyledButton = styled.button`
   width: 100%;
   padding: 16px 20px;
   border: none;
   background: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.darkText};
+  &:disabled {
+    opacity: 0.4;
+    background: lightgrey;
+  }
 `;

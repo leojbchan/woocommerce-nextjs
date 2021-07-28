@@ -1,4 +1,5 @@
-import { Order } from "./types/wooCommerceTypes";
+import { PaymentIntent } from "./types/stripeTypes";
+import { LineItem, Order } from "./types/wooCommerceTypes";
 
 const axios = require("axios").default;
 
@@ -18,11 +19,37 @@ const instance = axios.create({
 //---------------------------------------//
 
 // hits the create-order API endpoint to create a new WooCommerce order //
-export async function createOrderApi(data: Order) {
+export async function createOrderApi(
+  lineItems: LineItem[],
+  paymentIntentId: string
+) {
+  // create order data
+  const data: Order = {
+    payment_method: "stripe",
+    payment_method_title: "Card",
+    set_paid: false,
+    line_items: lineItems,
+    meta_data: [
+      {
+        key: "_stripe_intent_id",
+        value: paymentIntentId,
+      },
+    ],
+  };
+
   try {
     const response = await instance.post("create-order", data);
-    console.log("--CREATED WOOCOMMERCE ORDER: ", response.data);
-    return response.data;
+    return response.data as Order;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+// hits the create-payment-intent API endpoint to create a new Stripe payment intent and return client secret //
+export async function createPaymentIntentApi(data: LineItem[]) {
+  try {
+    const response = await instance.post("create-payment-intent", data);
+    return response.data as PaymentIntent;
   } catch (err) {
     throw new Error(err);
   }
