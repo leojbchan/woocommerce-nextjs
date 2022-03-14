@@ -24,6 +24,13 @@ STRIPE_SECRET_KEY
 
 ## Getting Started
 
+Make sure you have installed nextjs for project.
+
+Install next with below command:
+```bash
+npm install next
+```
+
 Run the development server:
 
 ```bash
